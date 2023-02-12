@@ -1,11 +1,10 @@
-import React from 'react';
 import s from './Contacts.module.css';
 
-export const ContactsForm = ({ contacts, onDelete }) => {
+export default function Contacts({ contacts, onDelete }) {
+  console.log(contacts, ' contacts');
   return (
-    <>
-      {' '}
-      {contacts.length !== 0 && (
+    contacts.length !== 0 && (
+      <>
         <ul className={s.contList}>
           {contacts.map(({ name, tel, id }) => (
             <li className={s.contItem} key={name}>
@@ -13,8 +12,8 @@ export const ContactsForm = ({ contacts, onDelete }) => {
                 {name}: {tel}
               </p>
               <button
-                className={s.contBtn}
                 type="button"
+                className={s.contBtn}
                 onClick={() => onDelete(id)}
               >
                 Delete
@@ -22,7 +21,7 @@ export const ContactsForm = ({ contacts, onDelete }) => {
             </li>
           ))}
         </ul>
-      )}
-    </>
+      </>
+    )
   );
-};
+}
