@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import s from './Form.module.css';
 import { nanoid } from 'nanoid';
@@ -54,3 +55,7 @@ export default function Form({ changeAppState }) {
     </form>
   );
 }
+
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
